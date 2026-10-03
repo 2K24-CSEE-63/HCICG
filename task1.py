@@ -34,4 +34,4 @@ def inspect_image(image_path: str) -> dict:
     }
 
 if __name__ == "__main__":
-    inspect_image("Images/orignal.jpeg")
+    inspect_image("images/original.jpeg")

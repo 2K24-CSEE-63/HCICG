@@ -55,4 +55,4 @@ def create_pixel_views(image_path: str, output_dir: str) -> dict:
     }
 
 if __name__ == "__main__":
-    create_pixel_views("Images/orignal.jpeg", "outputs")
+    create_pixel_views("images/original.jpeg", "outputs")

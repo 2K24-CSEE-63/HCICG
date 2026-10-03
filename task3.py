@@ -65,4 +65,4 @@ def create_adjustments(
     }
 
 if __name__ == "__main__":
-    create_adjustments("Images/orignal.jpeg", "outputs")
+    create_adjustments("images/original.jpeg", "outputs")

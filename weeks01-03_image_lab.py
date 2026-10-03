@@ -79,8 +79,8 @@ def main() -> None:
     os.makedirs(output_dir, exist_ok=True)
     # fallback for your current name
     if not os.path.exists(image_path):
-        if os.path.exists("Images/orignal.jpeg"):
-            image_path = "Images/orignal.jpeg"
+        if os.path.exists("images/original.jpeg"):
+            image_path = "images/original.jpeg"
     print(f"Running lab: {image_path} -> {output_dir}")
     results = run_lab(image_path, output_dir)
     print("Done:", list(results.keys()))

@@ -56,4 +56,4 @@ def create_blur_and_edges(
     }
 
 if __name__ == "__main__":
-    create_blur_and_edges("Images/orignal.jpeg", "outputs")
+    create_blur_and_edges("images/original.jpeg", "outputs")
