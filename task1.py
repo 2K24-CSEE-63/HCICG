@@ -1,13 +1,37 @@
-import numpy as np
+import cv2
 
-# TODO 1: Return 255 when a pixel is >= threshold; otherwise return 0.
-def threshold_image(image: np.ndarray, threshold: int) -> np.ndarray:
-    """Convert a grayscale image to black and white."""
-    return np.where(image >= threshold, 255, 0).astype(np.uint8)
+def inspect_image(image_path: str) -> dict:
+    """Load the image and return its measured image-data properties."""
+    img = cv2.imread(image_path)
+    if img is None:
+        raise FileNotFoundError(f"Image not found at {image_path}")
 
-problem_1_input = np.array([[20, 128, 200], [100, 150, 250]], dtype=np.uint8)
-problem_1_expected = np.array([[0, 255, 255], [0, 255, 255]], dtype=np.uint8)
+    # cv2 shape is (height, width, channels)
+    height, width, channels = img.shape
+    
+    shape = [height, width, channels]  # autograder ko list chahiye, tuple nahi
+    pixel_count = width * height
+    estimated_bytes = pixel_count * channels  # 1 byte per channel
+    color_order = "BGR"  # cv2 hamesha BGR me load karta hai
 
-# TODO 2: Remove the # symbols and run the test.
-np.testing.assert_array_equal(threshold_image(problem_1_input, 128), problem_1_expected)
-print("Problem 1 passed")
+    # README ke liye print karna hai
+    print(f"Width: {width}")
+    print(f"Height: {height}")
+    print(f"Channels: {channels}")
+    print(f"Shape: {shape}")
+    print(f"Pixel Count: {pixel_count}")
+    print(f"Estimated Bytes: {estimated_bytes}")
+    print(f"Color Order: {color_order}")
+
+    return {
+        "width": width,
+        "height": height,
+        "channels": channels,
+        "shape": shape,
+        "pixel_count": pixel_count,
+        "estimated_bytes": estimated_bytes,
+        "color_order": color_order
+    }
+
+if __name__ == "__main__":
+    inspect_image("Images/orignal.jpeg")
